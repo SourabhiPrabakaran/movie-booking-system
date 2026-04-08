@@ -2,8 +2,11 @@ pipeline {
     agent any
     stages {
         stage('Clone') {
-            steps { git 'https://github.com/SourabhiPrabakaran/movie-booking-system' }
-        }
+    steps {
+        git branch: 'main',
+            url: 'https://github.com/SourabhiPrabakaran/movie-booking-system'
+    }
+}
         stage('Build') {
             steps { sh 'mvn clean package' }
         }
