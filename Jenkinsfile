@@ -20,7 +20,9 @@ pipeline {
             steps { bat 'docker push sourabhip/movie-booking:latest' }
         }
         stage('Deploy') {
-            steps { bat 'kubectl apply -f deployment.yaml --validate=false' }
+            steps { 
+        bat 'kubectl apply -f deployment.yaml --kubeconfig="C:\\Users\\soura\\.kube\\config" --validate=false'
+    }
 }
     }
 }
