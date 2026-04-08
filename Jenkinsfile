@@ -20,7 +20,7 @@ pipeline {
             steps { bat 'docker push sourabhip/movie-booking:latest' }
         }
         stage('Deploy') {
-            steps { bat 'kubectl apply -f deployment.yaml' }
-        }
+            steps { bat 'kubectl apply -f deployment.yaml --validate=false' }
+}
     }
 }
